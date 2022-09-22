@@ -22,6 +22,18 @@ class CompanyViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAdminUser]
     authentication_classes = [JWTAuthentication]
 
+    def get_queryset(self):
+        """
+        Option to search by company name if query parameter in URL
+        """
+        queryset = Company.objects.all()
+        company_name = self.request.query_params.get('name')
+
+        # query param provided in path
+        if company_name:
+            queryset = queryset.filter(name=company_name)
+        return queryset
+
 class TeamViewSet(viewsets.ModelViewSet):
     queryset = Team.objects.all()
     serializer_class = serializers.TeamSerializer
@@ -42,9 +54,4 @@ class TeamViewSet(viewsets.ModelViewSet):
         company_obj = Company.objects.get(pk=self.kwargs['cid'])
         company_id = self.request.query_params.get('cid')
         print('company ID: ',company_id)
-        if company_id:
-            print('jinga')
-            return Response({"payload":serializer.data,"error":"Invalid Company ID in query"},status=status.HTTP_400_BAD_REQUEST)
-        else:
-            print('yoo')
         # serializer.save(company_id=company_obj)
