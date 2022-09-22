@@ -25,7 +25,7 @@ class Company(models.Model):
 #/ if Team also has some date field then we can create a base model containing uid and date
 class Team(models.Model):
     uid = models.UUIDField(default=uuid.uuid4,editable=False,primary_key=True)
-    company_id = models.ForeignKey(to=Company,on_delete=models.CASCADE,related_name='team')
+    company_id = models.ForeignKey(to=Company,on_delete=models.CASCADE,related_name='teams')
     team_lead  = models.CharField(_("Team Lead Name"),max_length=100)
 
     def __str__(self) -> str:

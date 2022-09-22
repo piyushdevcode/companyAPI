@@ -23,15 +23,19 @@ team_detail = views.TeamViewSet.as_view({
     'patch': 'partial_update',
     'delete': 'destroy'
 })
+all_team_list = views.ListAllTeamsViewset.as_view({'get':'list'})
+all_team_detail = views.ListAllTeamsViewset.as_view({'get':'retrieve'})
 
 urlpatterns = [
-    # path('',views.api_root,name='api-root'),
+    path('',views.api_root,name='api-root'),
     path('api-auth/', include('rest_framework.urls')),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('', include(router.urls)),
+
     path('team/create/<uuid:cid>/',team_create,name='team-create'),
     path('team/',team_list,name='team-list'),
-    path('team/<uuid:id>/',team_detail,name='team-detail')
-
+    path('team/<uuid:id>/',team_detail,name='team-detail'),
+    path('team/all/',all_team_list,name='all-teams-list'),
+    path('team/all/<uuid:id>/',all_team_detail,name='all-teams-detail'),
 ]

@@ -14,3 +14,12 @@ class TeamSerializer(serializers.ModelSerializer):
         fields = '__all__'
         # We are getting the company_id from URL so no need of it in JSON when creating team
         extra_kwargs = {'company_id':{'read_only':True}}
+
+class AllTeamSerializer(serializers.ModelSerializer):
+    # teams = serializers.HyperlinkedRelatedField(many=True,view_name='team-detail',read_only=True,lookup_url_kwarg='id')
+    teams = serializers.PrimaryKeyRelatedField(many=True,read_only=True,
+    pk_field=serializers.UUIDField(format='hex')
+    )
+    class Meta:
+        model = Company
+        fields = ['name','teams']
