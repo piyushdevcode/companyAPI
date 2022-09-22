@@ -29,16 +29,22 @@ class TeamViewSet(viewsets.ModelViewSet):
     authentication_classes = [JWTAuthentication]
 
     def create(self, request, *args, **kwargs):
-        print('args',args)
-        print('kwargs',kwargs)
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        company_id = self.request.query_params.get('cid')
+        print('company ID: ',company_id)
+        if company_id:
+            print('jinga')
+            return Response({"error":"Invalid Company ID in query parameters"},status=status.HTTP_400_BAD_REQUEST)
+        return super().create(request, *args, **kwargs)
     
     def perform_create(self, serializer):
         print('self: ',self)
         print('serializer',serializer)
-        company_obj = Company.objects.get(pk=self.kwargs['id'])
-        serializer.save(company_id=company_obj)
+        company_obj = Company.objects.get(pk=self.kwargs['cid'])
+        company_id = self.request.query_params.get('cid')
+        print('company ID: ',company_id)
+        if company_id:
+            print('jinga')
+            return Response({"payload":serializer.data,"error":"Invalid Company ID in query"},status=status.HTTP_400_BAD_REQUEST)
+        else:
+            print('yoo')
+        # serializer.save(company_id=company_obj)

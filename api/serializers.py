@@ -12,3 +12,5 @@ class TeamSerializer(serializers.ModelSerializer):
     class Meta:
         model = Team
         fields = '__all__'
+        # We are getting the company_id from URL so no need of it in JSON when creating team
+        extra_kwargs = {'company_id':{'read_only':True}}

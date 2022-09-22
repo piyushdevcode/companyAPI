@@ -30,7 +30,7 @@ urlpatterns = [
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('', include(router.urls)),
-    path('team/create/<uuid:id>/',team_create,name='team-create'),
+    path('team/create/<uuid:cid>/',team_create,name='team-create'),
     path('team/',team_list,name='team-list'),
     path('team/<uuid:id>/',team_detail,name='team-detail')
 
