@@ -6,7 +6,8 @@ from rest_framework.reverse import reverse
 from api.models import Company,Team
 from . import serializers
 from rest_framework_simplejwt.authentication import JWTAuthentication
-# Create your views here.
+from api.permissions import IsSuperAdmin
+
 @api_view()
 def api_root(request,format=None):
     """
@@ -23,7 +24,7 @@ def api_root(request,format=None):
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
     serializer_class = serializers.CompanySerializer
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [IsSuperAdmin]
     authentication_classes = [JWTAuthentication]
 
     def get_queryset(self):
@@ -41,7 +42,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
 class TeamViewSet(viewsets.ModelViewSet):
     queryset = Team.objects.all()
     serializer_class = serializers.TeamSerializer
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [IsSuperAdmin]
     authentication_classes = [JWTAuthentication]
 
     def create(self, request, *args, **kwargs):
@@ -64,3 +65,4 @@ class ListAllTeamsViewset(viewsets.ReadOnlyModelViewSet):
     queryset = Company.objects.prefetch_related('teams')
     serializer_class = serializers.AllTeamSerializer
     lookup_url_kwarg = 'id'
+    permission_classes = [IsSuperAdmin]
