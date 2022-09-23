@@ -17,9 +17,10 @@ class TeamSerializer(serializers.ModelSerializer):
 
 class AllTeamSerializer(serializers.ModelSerializer):
     # teams = serializers.HyperlinkedRelatedField(many=True,view_name='team-detail',read_only=True,lookup_url_kwarg='id')
-    teams = serializers.PrimaryKeyRelatedField(many=True,read_only=True,
-    pk_field=serializers.UUIDField(format='hex')
-    )
+    # teams = serializers.PrimaryKeyRelatedField(many=True,read_only=True,
+    # pk_field=serializers.UUIDField(format='hex')
+    # )
+    teams = TeamSerializer(many=True,read_only=True)
     class Meta:
         model = Company
         fields = ['name','teams']

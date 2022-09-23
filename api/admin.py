@@ -1,8 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from api.models import *
-# Register your models here.
-admin.site.site_url = '/api'
-admin.site.register(CustomUser,UserAdmin)
+
+# setting the 'view site' URL for admin panel
+admin.site.site_url = "/api"
+
+# registering our custom user model
+admin.site.register(CustomUser, UserAdmin)
+
 admin.site.register(Company)
 admin.site.register(Team)
