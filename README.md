@@ -43,3 +43,4 @@ docker-compose exec web python manage.py test
 | `team/all/<uuid:company_id>/`    | GET         | list all the teams of given company               | SuperAdmin    |
 
 ## Database schema
+![Database Design](screenshots/DB_design.png "Database Design")
