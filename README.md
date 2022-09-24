@@ -1,14 +1,28 @@
 # techwondoe-task
 
+## Prerequisite
+### [Docker](https://docs.docker.com/get-docker/)
+
 ## How To Run
 
-#### 1. Clone Repository
+### 1. Clone Repository
 
-#### 2. build and run docker container `docker-compose up -d`
+```sh
+git clone https://github.com/piyushdevcode/techwondoe-task
+```
 
-## To run tests
+### 2.buid and start server at http://localhost:8000
 
-### while the docker container is running, run command `docker-compose exec web python manage.py test`
+  ```sh
+  docker-compose up --build
+  ```
+  
+# To run tests
+
+### while the docker container is running 
+```
+docker-compose exec web python manage.py test
+```
 
 # API
 
@@ -26,3 +40,5 @@
 | `team/<uuid:team_id>/`           | DELETE      | delete specific team                              | SuperAdmin    |
 | `team/all/`                      | GET         | list all the companies and their teams            | SuperAdmin    |
 | `team/all/<uuid:company_id>/`    | GET         | list all the teams of given company               | SuperAdmin    |
+
+## Database schema
