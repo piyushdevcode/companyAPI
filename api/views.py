@@ -61,6 +61,10 @@ class TeamViewSet(viewsets.ModelViewSet):
 
 
 class ListAllTeamsViewset(viewsets.ReadOnlyModelViewSet):
+    """
+    list all the companies and their teams
+    """
+
     queryset = Company.objects.prefetch_related("teams")
     serializer_class = serializers.AllTeamSerializer
     lookup_url_kwarg = "company_id"

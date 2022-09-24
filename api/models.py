@@ -19,16 +19,21 @@ class Company(models.Model):
     class Meta:
         verbose_name_plural = "Companies"
 
+        # company name might be repeating but not with same CEO name
+        unique_together = ["name", "ceo_name"]
+
     def __str__(self) -> str:
         return f"{self.name} | CEO: {self.ceo_name}"
 
 
 class Team(models.Model):
     uid = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
+
     company_id = models.ForeignKey(
         to=Company, on_delete=models.CASCADE, related_name="teams"
     )
+
     team_lead_name = models.CharField(_("Team Lead Name"), max_length=100)
 
     def __str__(self) -> str:
-        return f"lead by {self.team_lead_name} of {self.company_id}"
+        return f"Team lead by {self.team_lead_name} of {self.company_id}"
