@@ -1,0 +1,100 @@
+[
+{
+    "model": "api.customuser",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$G0HABYJBYtTiLX0B7lKPpW$hZA9aLxkSSg5yXhKN0N0MkLUr+QqF0yCGIuu27saDyE=",
+        "last_login": "2022-09-24T04:57:04.775Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@techwondoe.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-09-23T10:46:32.158Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "api.customuser",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$OSr4tDDMEplxODUnCVDsbq$Eq9lU5KU/FSlNgWpfx9bMvi0H5N76lCpfBpHEhs9bbo=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "user1",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-09-24T05:04:25Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "api.company",
+    "pk": "7575a69a-2f7a-4929-83d2-13a7ac0dc715",
+    "fields": {
+        "name": "Company 2",
+        "ceo_name": "Nick",
+        "address": "xyz,abc ,",
+        "inception_date": "2022-09-22"
+    }
+},
+{
+    "model": "api.company",
+    "pk": "c337d171-fe82-4d9b-9e11-b51339e0ab2f",
+    "fields": {
+        "name": "Company XYZ",
+        "ceo_name": "John",
+        "address": "NYC,US",
+        "inception_date": "2020-10-25"
+    }
+},
+{
+    "model": "api.company",
+    "pk": "d987b683-3423-4b23-883b-61eeeac42dbc",
+    "fields": {
+        "name": "Company 1",
+        "ceo_name": "ABC DEF",
+        "address": "D/WZ- 13, XYZ, NYC,",
+        "inception_date": "2022-09-22"
+    }
+},
+{
+    "model": "api.team",
+    "pk": "3aa854bd-8dee-4aa5-9503-1b60911c481c",
+    "fields": {
+        "company_id": "d987b683-3423-4b23-883b-61eeeac42dbc",
+        "team_lead": "adminq"
+    }
+},
+{
+    "model": "api.team",
+    "pk": "729a51ea-1643-41c4-abf4-680309d623c7",
+    "fields": {
+        "company_id": "d987b683-3423-4b23-883b-61eeeac42dbc",
+        "team_lead": "admin"
+    }
+},
+{
+    "model": "api.team",
+    "pk": "864b1a0f-3431-4057-bd2d-b9246094b6da",
+    "fields": {
+        "company_id": "d987b683-3423-4b23-883b-61eeeac42dbc",
+        "team_lead": "Alex Doe"
+    }
+},
+{
+    "model": "api.team",
+    "pk": "ff270ca9-dd41-41ed-b2d7-30f1dc7a5aca",
+    "fields": {
+        "company_id": "c337d171-fe82-4d9b-9e11-b51339e0ab2f",
+        "team_lead": "Leader 3"
+    }
+}
+]
