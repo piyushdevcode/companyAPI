@@ -8,22 +8,15 @@ from rest_framework_simplejwt.views import (
 
 router = DefaultRouter()
 router.register(r"company", views.CompanyViewSet, basename="company")
-# router.register(r'team',views.TeamViewSet,basename='team')
 
-# Binding viewsets explicitly so as to custom URLs
-team_list = views.TeamViewSet.as_view(
-    {
-        "get": "list",
-    }
-)
-team_create = views.TeamViewSet.as_view(
-    {
-        "post": "create",
-    }
-)
+# Binding viewsets explicitly so as to assign custom URLs
+
+team_list = views.TeamViewSet.as_view({"get": "list"})
+team_create = views.TeamViewSet.as_view({"post": "create"})
 team_detail = views.TeamViewSet.as_view(
     {"get": "retrieve", "put": "update", "patch": "partial_update", "delete": "destroy"}
 )
+
 all_team_list = views.ListAllTeamsViewset.as_view({"get": "list"})
 all_team_detail = views.ListAllTeamsViewset.as_view({"get": "retrieve"})
 
@@ -33,6 +26,7 @@ urlpatterns = [
     path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("", include(router.urls)),
+    # create a team by specifying company id in path
     path("team/create/<uuid:company_id>/", team_create, name="team-create"),
     path("team/", team_list, name="team-list"),
     path("team/<uuid:team_id>/", team_detail, name="team-detail"),

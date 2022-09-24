@@ -1,5 +1,5 @@
 from .test_setup import TestSetUp
-from rest_framework.test import APITestCase, force_authenticate
+from rest_framework.test import force_authenticate
 from api.models import Company, CustomUser, Team
 from django.urls import reverse
 from rest_framework import status
@@ -63,9 +63,13 @@ class TestCompanyViews(TestSetUp):
         self.client.force_authenticate(user=self.super_admin)
         response = self.client.get(reverse("company-list"), {"name": company_name})
         self.assertContains(response, company_name)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     # search by company when company by that name doesn't exist
     def test_search_company_by_name_company_exists(self):
+        """
+        if company not found returns an empty list with status_code 200
+        """
         company_name = "some random company"
         self.client.force_authenticate(user=self.super_admin)
         response = self.client.get(reverse("company-list"), {"name": company_name})
@@ -75,12 +79,12 @@ class TestCompanyViews(TestSetUp):
 
 class TestTeamViews(TestSetUp):
     """
-    tests create , list , retrieve , listallteams,
+    tests create , list , retrieve , listallteams
     """
 
     def setUp(self):
         fake = Faker()
-        self.new_team_data = {"team_lead": fake.name()}
+        self.new_team_data = {"team_lead_name": fake.name()}
         return super().setUp()
 
     # create a team when a company with that id exists

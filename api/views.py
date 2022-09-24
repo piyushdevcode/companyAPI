@@ -26,9 +26,6 @@ def api_root(request, format=None):
     )
 
 
-# / For sake of refactoring have used the ModelViewSet
-
-
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
     serializer_class = serializers.CompanySerializer
@@ -41,9 +38,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
         Option to search by company name if query parameter in URL
         """
         queryset = Company.objects.all()
-        company_name = self.request.query_params.get("name")
-        # query param provided in path
-        if company_name:
+        if company_name := self.request.query_params.get("name"):
             queryset = queryset.filter(name=company_name)
         return queryset
 
@@ -56,13 +51,13 @@ class TeamViewSet(viewsets.ModelViewSet):
     lookup_url_kwarg = "team_id"
 
     def perform_create(self, serializer):
-        print("self: ", self)
-        print("serializer", serializer)
         try:
             company_obj = Company.objects.get(pk=self.kwargs["company_id"])
             serializer.save(company_id=company_obj)
         except Company.DoesNotExist as e:
-            raise ValidationError({"error": "Company with given UID doesn't exist"})
+            raise ValidationError(
+                {"error": "Company with given UID doesn't exist"}
+            ) from e
 
 
 class ListAllTeamsViewset(viewsets.ReadOnlyModelViewSet):

@@ -3,6 +3,10 @@ from api.models import *
 
 
 class TestSetUp(APITestCase):
+    """
+    loading the fixtures and setting up superuser
+    """
+
     fixtures = ["test_data.json"]
 
     def setUp(self):

@@ -70,7 +70,7 @@
     "pk": "3aa854bd-8dee-4aa5-9503-1b60911c481c",
     "fields": {
         "company_id": "d987b683-3423-4b23-883b-61eeeac42dbc",
-        "team_lead": "adminq"
+        "team_lead_name": "adminq"
     }
 },
 {
@@ -78,7 +78,7 @@
     "pk": "729a51ea-1643-41c4-abf4-680309d623c7",
     "fields": {
         "company_id": "d987b683-3423-4b23-883b-61eeeac42dbc",
-        "team_lead": "admin"
+        "team_lead_name": "admin"
     }
 },
 {
@@ -86,7 +86,7 @@
     "pk": "864b1a0f-3431-4057-bd2d-b9246094b6da",
     "fields": {
         "company_id": "d987b683-3423-4b23-883b-61eeeac42dbc",
-        "team_lead": "Alex Doe"
+        "team_lead_name": "Alex Doe"
     }
 },
 {
@@ -94,7 +94,7 @@
     "pk": "ff270ca9-dd41-41ed-b2d7-30f1dc7a5aca",
     "fields": {
         "company_id": "c337d171-fe82-4d9b-9e11-b51339e0ab2f",
-        "team_lead": "Leader 3"
+        "team_lead_name": "Leader 3"
     }
 }
 ]
