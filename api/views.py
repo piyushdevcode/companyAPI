@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import viewsets
 from rest_framework.reverse import reverse
 from api.models import Company, Team
-from . import serializers
+from api.serializers import *
 from rest_framework.serializers import ValidationError
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from api.permissions import IsSuperAdmin
@@ -26,7 +26,7 @@ def api_root(request, format=None):
 
 class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
-    serializer_class = serializers.CompanySerializer
+    serializer_class = CompanySerializer
     permission_classes = [IsSuperAdmin]
     authentication_classes = [JWTAuthentication]
     lookup_url_kwarg = "company_id"
@@ -43,7 +43,7 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
 class TeamViewSet(viewsets.ModelViewSet):
     queryset = Team.objects.all()
-    serializer_class = serializers.TeamSerializer
+    serializer_class = TeamSerializer
     permission_classes = [IsSuperAdmin]
     authentication_classes = [JWTAuthentication]
     lookup_url_kwarg = "team_id"
@@ -64,6 +64,6 @@ class ListAllTeamsViewset(viewsets.ReadOnlyModelViewSet):
     """
 
     queryset = Company.objects.prefetch_related("teams")
-    serializer_class = serializers.AllTeamSerializer
+    serializer_class = AllTeamSerializer
     lookup_url_kwarg = "company_id"
     permission_classes = [IsSuperAdmin]
