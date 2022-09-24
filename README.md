@@ -41,6 +41,7 @@ docker-compose exec web python manage.py test
 | `companies/`                     | POST        | create a new company                                     | SuperAdmin    |[create a new company](http://127.0.0.1:8000/api/company/#post-object-form)|
 | `companies/<uuid:company_id>/`   | PUT,PATCH   | modify specific company info                             | SuperAdmin    |[modify company instance](http://127.0.0.1:8000/api/company/7575a69a-2f7a-4929-83d2-13a7ac0dc715/)|
 | `companies/<uuid:company_id>/`   | DELETE      | delete specific company                                  | SuperAdmin    |[delete company instance](http://127.0.0.1:8000/api/company/7575a69a-2f7a-4929-83d2-13a7ac0dc715/)|
+| `team/`           | GET         | list all teams                              | SuperAdmin    |[list all teams](http://127.0.0.1:8000/api/team/)|
 | `team/create/<uuid:company_id>/` | POST        | create a new team for company(having uuid as company_id) | SuperAdmin    |[create a new team](http://127.0.0.1:8000/api/team/create/7575a69a-2f7a-4929-83d2-13a7ac0dc715/#post-object-form)|
 | `team/<uuid:team_id>/`           | GET         | retrieve specific team info                              | SuperAdmin    |[a team instance](http://127.0.0.1:8000/api/team/3aa854bd-8dee-4aa5-9503-1b60911c481c/)|
 | `team/<uuid:team_id>/`           | PUT,PATCH   | modify specific team info                                | SuperAdmin    |[modify team instance](http://127.0.0.1:8000/api/team/3aa854bd-8dee-4aa5-9503-1b60911c481c/)|
