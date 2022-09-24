@@ -36,7 +36,7 @@ docker-compose exec web python manage.py test
 | `companies/`                     | POST        | create a new company                              | SuperAdmin    |
 | `companies/<uuid:company_id>/`   | PUT,PATCH   | modify specific company info                      | SuperAdmin    |
 | `companies/<uuid:company_id>/`   | DELETE      | delete specific company                           | SuperAdmin    |
-| `team/create/<uuid:company_id>/` | POST        | create a new team for company(having uuid as cid) | SuperAdmin    |
+| `team/create/<uuid:company_id>/` | POST        | create a new team for company(having uuid as company_id) | SuperAdmin    |
 | `team/<uuid:team_id>/`           | GET         | retrieve specific team info                       | SuperAdmin    |
 | `team/<uuid:team_id>/`           | PUT,PATCH   | modify specific team info                         | SuperAdmin    |
 | `team/<uuid:team_id>/`           | DELETE      | delete specific team                              | SuperAdmin    |
