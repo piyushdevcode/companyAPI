@@ -1,4 +1,5 @@
-# techwondoe-task
+# Company API
+### Django Rest Framework Application to expose a few API's , accessible using JWT Token
 
 ## Prerequisite
 ### [Docker](https://docs.docker.com/get-docker/)
@@ -8,7 +9,7 @@
 ### 1. Clone Repository
 
 ```sh
-git clone https://github.com/piyushdevcode/techwondoe-task
+git clone https://github.com/piyushdevcode/companyAPI
 ```
 
 ### 2.buid and start server at http://localhost:8000
