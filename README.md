@@ -46,3 +46,9 @@ docker-compose exec web python manage.py test
 
 # Database schema
 ![Database Design](screenshots/DB_design.png "Database Design")
+
+## To access browsable API 
+  - use extension that modifies request header like [ModHeader](https://modheader.com/)
+  - generate token by going to http://localhost:8000/api/token/ and entering the given credentials to generate token
+  - copy the token obtained and using the extension add Authorization to Request header with provided token
+  - now browsable API should be accessible
