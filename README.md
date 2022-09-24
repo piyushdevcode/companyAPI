@@ -21,11 +21,12 @@ git clone https://github.com/piyushdevcode/companyAPI
 # To run tests
 
 ### while the docker container is running 
-```
+```sh
 docker-compose exec web python manage.py test
 ```
 
 # API
+### API Root - http://127.0.0.1:8000/api/
 
 | End Point                        | HTTP Method | Result                                            | Accessible by |
 | -------------------------------- | ----------- | ------------------------------------------------- | ------------- |
@@ -42,5 +43,6 @@ docker-compose exec web python manage.py test
 | `team/all/`                      | GET         | list all the companies and their teams            | SuperAdmin    |
 | `team/all/<uuid:company_id>/`    | GET         | list all the teams of given company               | SuperAdmin    |
 
-## Database schema
+
+# Database schema
 ![Database Design](screenshots/DB_design.png "Database Design")
