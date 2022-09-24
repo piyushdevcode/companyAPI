@@ -12,7 +12,7 @@
 git clone https://github.com/piyushdevcode/companyAPI
 ```
 
-### 2.buid and start server at http://localhost:8000
+### 2. Build and start server at http://localhost:8000
 
   ```sh
   docker-compose up --build
