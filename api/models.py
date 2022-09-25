@@ -1,4 +1,3 @@
-from enum import unique
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 import uuid
@@ -10,6 +9,11 @@ class CustomUser(AbstractUser):
 
 
 class Company(models.Model):
+    """
+    stores information about company
+    columns: uid, name, ceo_name, address, inception_date
+    """
+
     uid = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
     name = models.CharField(_("Company Name"), max_length=100)
     ceo_name = models.CharField(_("Ceo Name"), max_length=50)
@@ -27,6 +31,11 @@ class Company(models.Model):
 
 
 class Team(models.Model):
+    """
+    stores information of team inside a company
+    columns: uid, company_id, team_lead_name
+    """
+
     uid = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
 
     company_id = models.ForeignKey(

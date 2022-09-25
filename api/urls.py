@@ -34,6 +34,7 @@ urlpatterns = [
     path("team/create/<uuid:company_id>/", team_create, name="team-create"),
     path("team/", team_list, name="team-list"),
     path("team/<uuid:team_id>/", team_detail, name="team-detail"),
+    # lisiting all the teams of all the companies
     path("team/all/", all_team_list, name="all-teams-list"),
     # list all teams of given company
     path("team/all/<uuid:company_id>/", all_team_detail, name="all-teams-detail"),

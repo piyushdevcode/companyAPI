@@ -10,7 +10,7 @@ services:
              python manage.py loaddata test_data.json &&
              python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - .:/techwondoetask
+      - .:/companyapi
     depends_on:
       - db
   db:

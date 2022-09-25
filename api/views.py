@@ -25,6 +25,10 @@ def api_root(request, format=None):
 
 
 class CompanyViewSet(viewsets.ModelViewSet):
+    """
+    lists all the companies, create a new company, retrieve, update, delete a company instance
+    """
+
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
     permission_classes = [IsSuperAdmin]
@@ -42,6 +46,10 @@ class CompanyViewSet(viewsets.ModelViewSet):
 
 
 class TeamViewSet(viewsets.ModelViewSet):
+    """
+    lists all the team, create a new team by specifying companyID in path, retrieve, update, delete a team instance
+    """
+
     queryset = Team.objects.all()
     serializer_class = TeamSerializer
     permission_classes = [IsSuperAdmin]

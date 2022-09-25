@@ -7,13 +7,13 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # create a root directory for our project in container
-RUN mkdir /techwondoetask
+RUN mkdir /companyApi
 # Set working directory
-WORKDIR /techwondoetask
+WORKDIR /companyApi
 
 # Install depenedencies
-COPY ./requirements.txt /techwondoetask/
+COPY ./requirements.txt /companyApi/
 RUN pip install -r requirements.txt
 
 # Copy project
-COPY . /techwondoetask/
+COPY . /companyApi//
